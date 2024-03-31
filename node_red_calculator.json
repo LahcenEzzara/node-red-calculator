@@ -1,0 +1,202 @@
+[
+    {
+        "id": "a8bae607e8e537c9",
+        "type": "tab",
+        "label": "Node-RED Calculator",
+        "disabled": false,
+        "info": "**Node-RED Calculator** Flow is a simple yet powerful calculator application built using the flow-based programming model of Node-RED. It allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.",
+        "env": []
+    },
+    {
+        "id": "ef925765b3579cf9",
+        "type": "ui_form",
+        "z": "a8bae607e8e537c9",
+        "name": "",
+        "label": "Calculator Inputs",
+        "group": "974de4b3515b3e26",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Number 1",
+                "value": "number1",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Number 2",
+                "value": "number2",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "number1": "",
+            "number2": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "861137cb4f377b3f"
+            ]
+        ]
+    },
+    {
+        "id": "861137cb4f377b3f",
+        "type": "function",
+        "z": "a8bae607e8e537c9",
+        "name": "performCalculation",
+        "func": "var var1 = msg.payload.number1;\nvar var2 = msg.payload.number2;\nmsg.payloadAddition = var1+var2;\nmsg.payloadSubtraction = var1-var2;\nmsg.payloadMultiplication = var1*var2;\nmsg.payloadDivision = var1/var2;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "912a71e4019bfc8c",
+                "8541391036d9d44b",
+                "d16c819c827b2757",
+                "1492110cd58b8b45"
+            ]
+        ]
+    },
+    {
+        "id": "912a71e4019bfc8c",
+        "type": "ui_text",
+        "z": "a8bae607e8e537c9",
+        "group": "974de4b3515b3e26",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Addition",
+        "format": "{{msg.payloadAddition}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8541391036d9d44b",
+        "type": "ui_text",
+        "z": "a8bae607e8e537c9",
+        "group": "974de4b3515b3e26",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Subtraction",
+        "format": "{{msg.payloadSubtraction}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d16c819c827b2757",
+        "type": "ui_text",
+        "z": "a8bae607e8e537c9",
+        "group": "974de4b3515b3e26",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Multiplication",
+        "format": "{{msg.payloadMultiplication}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1492110cd58b8b45",
+        "type": "ui_text",
+        "z": "a8bae607e8e537c9",
+        "group": "974de4b3515b3e26",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Division",
+        "format": "{{msg.payloadDivision}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "82e0315d9debf7f0",
+        "type": "ui_spacer",
+        "z": "a8bae607e8e537c9",
+        "name": "spacer",
+        "group": "d6f27962f8f37430",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "99fca904479035cb",
+        "type": "ui_spacer",
+        "z": "a8bae607e8e537c9",
+        "name": "spacer",
+        "group": "d6f27962f8f37430",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "974de4b3515b3e26",
+        "type": "ui_group",
+        "name": "Input",
+        "tab": "971b8e858878af37",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "971b8e858878af37",
+        "type": "ui_tab",
+        "name": "Calculator",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
